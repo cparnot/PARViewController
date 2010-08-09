@@ -1,0 +1,21 @@
+//  MTViewController
+//  Copyright 2010 Mekentosj BV. All rights reserved.
+
+// Prefix header for all source files of the 'DemoApp' target in the 'MTViewController' project
+
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif
+
+
+// macros to enforce threads
+
+#define MainThreadOrReturn() { if ( [NSThread currentThread] != [NSThread mainThread] ) { NSLog(@"The method %@ should ONLY be called on the main thread", NSStringFromSelector(_cmd)); return; } }
+
+#define MainThreadOrReturnValue(return_value) { if ( [NSThread currentThread] != [NSThread mainThread] ) { NSLog(@"The method %@ should ONLY be called on the main thread", NSStringFromSelector(_cmd)); return (return_value); } }
+
+#define SecondaryThreadOrReturn() { if ( [NSThread currentThread] == [NSThread mainThread] ) { NSLog(@"The method %@ should NOT be called on the main thread", NSStringFromSelector(_cmd)); return; } }
+
+#define SecondaryThreadOrReturnValue(return_value) { if ( [NSThread currentThread] == [NSThread mainThread] ) { NSLog(@"The method %@ should NOT be called on the main thread", NSStringFromSelector(_cmd)); return (return_value); } }
+
