@@ -74,6 +74,16 @@
 	return undoManager;
 }
 
+- (void)dealloc
+{
+	[line0 release];
+	[line1 release];
+	[line2 release];
+	[line3 release];
+	[allLines release];
+	[undoManager release];
+	[super dealloc];
+}
 
 #pragma mark Mouse events
 
