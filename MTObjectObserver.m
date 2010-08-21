@@ -4,6 +4,16 @@
 
 #import "MTObjectObserver.h"
 
+// thread-assertion macros can be defined outside of this file
+#ifndef MainThreadOrReturn
+  #define MainThreadOrReturn() do {} while(0)
+#endif
+
+#ifndef SecondaryThreadOrReturn
+  #define SecondaryThreadOrReturn() do {} while(0)
+#endif
+
+
 @implementation MTObjectObserver
 
 @synthesize observedObject;
@@ -35,13 +45,13 @@
 {
 	if (self.callbackMainThreadOnly == YES && [NSThread currentThread] != [NSThread mainThread])
 	{
-		SecondaryThreadOrReturn()
+		SecondaryThreadOrReturn();
 		[self performSelectorOnMainThread:@selector(notifyDelegateForKeyPath:) withObject:key waitUntilDone:NO];
 		return;
 	}
 	
 	if (self.callbackMainThreadOnly)
-		MainThreadOrReturn()
+		MainThreadOrReturn();
 	
 	if ([delegate respondsToSelector:callbackSelector])
 	{

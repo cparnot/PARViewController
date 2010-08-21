@@ -11,11 +11,6 @@
 
 // macros to enforce threads
 
-#define MainThreadOrReturn() { if ( [NSThread currentThread] != [NSThread mainThread] ) { NSLog(@"The method %@ should ONLY be called on the main thread", NSStringFromSelector(_cmd)); return; } }
+#define MainThreadOrReturn() do { if ( [NSThread currentThread] != [NSThread mainThread] ) { NSLog(@"The method %@ should ONLY be called on the main thread", NSStringFromSelector(_cmd)); return; } } while (0)
 
-#define MainThreadOrReturnValue(return_value) { if ( [NSThread currentThread] != [NSThread mainThread] ) { NSLog(@"The method %@ should ONLY be called on the main thread", NSStringFromSelector(_cmd)); return (return_value); } }
-
-#define SecondaryThreadOrReturn() { if ( [NSThread currentThread] == [NSThread mainThread] ) { NSLog(@"The method %@ should NOT be called on the main thread", NSStringFromSelector(_cmd)); return; } }
-
-#define SecondaryThreadOrReturnValue(return_value) { if ( [NSThread currentThread] == [NSThread mainThread] ) { NSLog(@"The method %@ should NOT be called on the main thread", NSStringFromSelector(_cmd)); return (return_value); } }
-
+#define SecondaryThreadOrReturn() do { if ( [NSThread currentThread] == [NSThread mainThread] ) { NSLog(@"The method %@ should NOT be called on the main thread", NSStringFromSelector(_cmd)); return; } } while (0)
