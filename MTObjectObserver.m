@@ -76,9 +76,15 @@
         callbackInvocation.selector = callbackSelector;
 		NSUInteger argumentCount = [[delegate methodSignatureForSelector:callbackSelector] numberOfArguments];
         if (argumentCount > 2)
-            [callbackInvocation setArgument:(__bridge void *)key atIndex:2];
+        {
+            void *arg = (__bridge void *)key;
+            [callbackInvocation setArgument:&arg atIndex:2];
+        }
         if (argumentCount > 3)
-            [callbackInvocation setArgument:(__bridge void *)observedObject atIndex:3];
+        {
+            void *arg = (__bridge void *)observedObject;
+            [callbackInvocation setArgument:&arg atIndex:3];
+        }
         [callbackInvocation invoke];
 	}
 }
