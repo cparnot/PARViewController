@@ -23,6 +23,11 @@ The MTViewController class and the example code are released under the modified 
 Changelog
 ---------
 
+Oct 2011
+
+* Project updated to Xcode 4.2
+* ARC compatibility
+
 August 2010
 
 * First public release
