@@ -1,21 +1,29 @@
 //  MTObjectObserver.m
 //  MTViewController
-//  Copyright 2010 Mekentosj BV. All rights reserved.
+//  Copyright 2010, 2011 Mekentosj BV. All rights reserved.
 
 #import "MTObjectObserver.h"
 
 // thread-assertion macros can be defined outside of this file
 #ifndef MainThreadOrReturn
-  #define MainThreadOrReturn() do {} while(0)
+#define MainThreadOrReturn() do {} while(0)
 #endif
 
 #ifndef SecondaryThreadOrReturn
-  #define SecondaryThreadOrReturn() do {} while(0)
+#define SecondaryThreadOrReturn() do {} while(0)
 #endif
+
+
+@interface MTObjectObserver ()
+@property (assign) id delegate;
+@property (readwrite, assign) id observedObject;
+@property (readwrite, retain) NSArray *observedKeys;
+@end
 
 
 @implementation MTObjectObserver
 
+@synthesize delegate;
 @synthesize observedObject;
 @synthesize observedKeys;
 @synthesize callbackMainThreadOnly;
@@ -27,7 +35,7 @@
 		observedObject = object;
 		delegate = notifiedObject;
 		callbackSelector = callback;
-		observedKeys = [keys retain];
+		observedKeys = [keys copy]; // using 'copy' to work with GC/ARC/non-ARC
 		for (NSString *key in observedKeys)
 			[observedObject addObserver:self forKeyPath:key options:0 context:NULL];
 		self.callbackMainThreadOnly = YES;
@@ -37,7 +45,13 @@
 
 + (MTObjectObserver *)observerWithDelegate:(id)notifiedObject selector:(SEL)callback observedKeys:(NSArray *)keys observedObject:(id)object
 {
-	MTObjectObserver *newObserver = [[[MTObjectObserver alloc] initWithDelegate:notifiedObject selector:callback observedKeys:keys observedObject:object] autorelease];
+	MTObjectObserver *newObserver = [[MTObjectObserver alloc] initWithDelegate:notifiedObject selector:callback observedKeys:keys observedObject:object];
+    
+    // `autorelease` is not valid in ARC
+    #if ! __has_feature(objc_arc)
+    [newObserver autorelease];
+    #endif
+    
 	return newObserver;
 }
 
@@ -53,15 +67,19 @@
 	if (self.callbackMainThreadOnly)
 		MainThreadOrReturn();
 	
+    // here we do not expect a return result actually, so we should not use `performSelector:` anyway, instead we should use NSInvocation
+    // see also issue about using ARC and `performSelector:` http://stackoverflow.com/questions/7017281/performselector-may-cause-a-leak-because-its-selector-is-unknown
 	if ([delegate respondsToSelector:callbackSelector])
-	{
+    {
+        NSInvocation *callbackInvocation = [NSInvocation invocationWithMethodSignature:[delegate methodSignatureForSelector:callbackSelector]];
+        callbackInvocation.target = delegate;
+        callbackInvocation.selector = callbackSelector;
 		NSUInteger argumentCount = [[delegate methodSignatureForSelector:callbackSelector] numberOfArguments];
-		if ( argumentCount == 2 )
-			[delegate performSelector:callbackSelector];
-		else if ( argumentCount == 3 )
-			[delegate performSelector:callbackSelector withObject:key];
-		else if ( argumentCount == 4 )
-			[delegate performSelector:callbackSelector withObject:key withObject:observedObject];
+        if (argumentCount > 2)
+            [callbackInvocation setArgument:(__bridge void *)key atIndex:2];
+        if (argumentCount > 3)
+            [callbackInvocation setArgument:(__bridge void *)observedObject atIndex:3];
+        [callbackInvocation invoke];
 	}
 }
 
@@ -75,18 +93,27 @@
 {
 	for (NSString *key in observedKeys)
 		[observedObject removeObserver:self forKeyPath:key];
-	[observedKeys release];
-	observedKeys = nil;
+	self.observedKeys = nil;
+	self.delegate = nil;
+	self.observedObject = nil;
 	callbackSelector = NULL;
-	delegate = nil;
-	observedObject = nil;
 }
 
+// compiling with ARC
+#if __has_feature(objc_arc)
 - (void)dealloc
 {
-	// maybe unsafe outside of main thread?
 	[self invalidate];
-	[super dealloc];
 }
+
+// compiling without ARC
+#else
+- (void)dealloc
+{
+	[self invalidate];
+    [super dealloc];
+}
+#endif
+
 
 @end

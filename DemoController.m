@@ -34,6 +34,11 @@
 	[[allLines objectAtIndex:selectedIndex] setDrawsBackground:YES];
 }
 
+- (NSUInteger)selectedIndex
+{
+    return selectedIndex;
+}
+
 - (void)setSelectedIndex:(NSUInteger)newValue
 {
 	NSLog(@"[%@ %@]", [self class], NSStringFromSelector(_cmd));
@@ -74,6 +79,8 @@
 	return undoManager;
 }
 
+
+#if ! __has_feature(objc_arc)
 - (void)dealloc
 {
 	[line0 release];
@@ -84,6 +91,7 @@
 	[undoManager release];
 	[super dealloc];
 }
+#endif
 
 #pragma mark Mouse events
 
