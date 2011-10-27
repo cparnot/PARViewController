@@ -1,15 +1,11 @@
 //  MTViewController.m
 //  MTViewController
-//  Copyright 2010 Mekentosj BV. All rights reserved.
+//  Copyright 2010, 2011 Mekentosj BV. All rights reserved.
 
 #import "MTViewController.h"
 #import "MTObjectObserver.h"
 
-#pragma mark -
-#pragma mark MTViewController
-
 // NSViewController base subclass that ensures automatic insertion into the responder chain
-
 // this is achieved simply by doing KVO on the nextResponder value for the controlled view, encapsulated in the MTViewObserver helper class
 
 @interface MTViewController()

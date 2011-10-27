@@ -1,7 +1,8 @@
 //  MTViewController.h
 //  MTViewController
-//  Copyright 2010 Mekentosj BV. All rights reserved.
+//  Copyright 2010, 2011 Mekentosj BV. All rights reserved.
 
+#import <Cocoa/Cocoa.h>
 
 /*
  
