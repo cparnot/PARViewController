@@ -16,8 +16,8 @@
 
 @interface MTObjectObserver ()
 @property (assign) id delegate;
-@property (readwrite, assign) id observedObject;
-@property (readwrite, retain) NSArray *observedKeys;
+@property (assign) id observedObject;
+@property (retain) NSArray *observedKeys;
 @end
 
 
@@ -30,12 +30,15 @@
 
 - (id)initWithDelegate:(id)notifiedObject selector:(SEL)callback observedKeys:(NSArray *)keys observedObject:(id)object
 {
-	self = [super init];
-	if ( self != nil ) {
+    self = [super init];
+	if (self != nil)
+    {
 		observedObject = object;
 		delegate = notifiedObject;
 		callbackSelector = callback;
 		observedKeys = [keys copy]; // using 'copy' to work with GC/ARC/non-ARC
+        
+        //-invalidate handles removing this observing, and it's called in -dealloc, this should be safe.
 		for (NSString *key in observedKeys)
 			[observedObject addObserver:self forKeyPath:key options:0 context:NULL];
 		self.callbackMainThreadOnly = YES;
@@ -48,9 +51,9 @@
 	MTObjectObserver *newObserver = [[MTObjectObserver alloc] initWithDelegate:notifiedObject selector:callback observedKeys:keys observedObject:object];
     
     // `autorelease` is not valid in ARC
-    #if ! __has_feature(objc_arc)
+#if ! __has_feature(objc_arc)
     [newObserver autorelease];
-    #endif
+#endif
     
 	return newObserver;
 }
@@ -75,6 +78,9 @@
         callbackInvocation.target = delegate;
         callbackInvocation.selector = callbackSelector;
 		NSUInteger argumentCount = [[delegate methodSignatureForSelector:callbackSelector] numberOfArguments];
+        
+        #if __has_feature(objc_arc)
+        
         if (argumentCount > 2)
         {
             void *arg = (__bridge void *)key;
@@ -85,6 +91,23 @@
             void *arg = (__bridge void *)observedObject;
             [callbackInvocation setArgument:&arg atIndex:3];
         }
+        if (argumentCount > 4)
+        {
+            void *arg = (__bridge void *)self;
+            [callbackInvocation setArgument:&arg atIndex:4];
+        }
+        
+        #else
+
+        if (argumentCount > 2)
+            [callbackInvocation setArgument:&key atIndex:2];
+        if (argumentCount > 3)
+            [callbackInvocation setArgument:&observedObject atIndex:3];
+        if (argumentCount > 4)
+            [callbackInvocation setArgument:&self atIndex:4];
+
+        #endif
+
         [callbackInvocation invoke];
 	}
 }
@@ -110,6 +133,8 @@
 - (void)dealloc
 {
 	[self invalidate];
+    observedObject = nil;
+    delegate = nil;
 }
 
 // compiling without ARC
@@ -117,6 +142,8 @@
 - (void)dealloc
 {
 	[self invalidate];
+    observedObject = nil;
+    delegate = nil;
     [super dealloc];
 }
 #endif
