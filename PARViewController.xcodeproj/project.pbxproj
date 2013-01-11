@@ -39,7 +39,7 @@
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		56053F8A1459D2DE00862F6F /* DemoAppARC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoAppARC.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		56053F8C1459D2DE00862F6F /* DemoAppARC-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "DemoAppARC-Info.plist"; path = "/Users/charles/Docs/Dev/MTViewController/DemoAppARC-Info.plist"; sourceTree = "<absolute>"; };
+		56053F8C1459D2DE00862F6F /* DemoAppARC-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DemoAppARC-Info.plist"; sourceTree = SOURCE_ROOT; };
 		56FA7E2B120F561D00BC4B4E /* PARObjectObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PARObjectObserver.h; sourceTree = "<group>"; };
 		56FA7E2C120F561D00BC4B4E /* PARObjectObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PARObjectObserver.m; sourceTree = "<group>"; };
 		56FA7E2D120F561D00BC4B4E /* PARViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PARViewController.h; sourceTree = "<group>"; };
