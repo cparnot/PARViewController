@@ -1,6 +1,6 @@
-//  PARViewController.m
 //  PARViewController
-//  Copyright 2010, 2011 Mekentosj BV. All rights reserved.
+//  Author: Charles Parnot
+//  Licensed under the terms of the BSD License, as specified in the file 'LICENSE-BSD.txt' included with this distribution
 
 #import "PARViewController.h"
 #import "PARObjectObserver.h"

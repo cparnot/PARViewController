@@ -1,7 +1,6 @@
-//  PARObjectObserver.h
 //  PARViewController
-//  Copyright 2010, 2011, 2012 Mekentosj BV. All rights reserved.
-
+//  Author: Charles Parnot
+//  Licensed under the terms of the BSD License, as specified in the file 'LICENSE-BSD.txt' included with this distribution
 
 @interface PARObjectObserver : NSObject
 {
