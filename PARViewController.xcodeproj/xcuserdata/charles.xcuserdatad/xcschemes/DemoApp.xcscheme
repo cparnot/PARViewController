@@ -16,7 +16,7 @@
                BlueprintIdentifier = "8D1107260486CEB800E47090"
                BuildableName = "DemoApp.app"
                BlueprintName = "DemoApp"
-               ReferencedContainer = "container:MTViewController.xcodeproj">
+               ReferencedContainer = "container:PARViewController.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,7 +34,7 @@
             BlueprintIdentifier = "8D1107260486CEB800E47090"
             BuildableName = "DemoApp.app"
             BlueprintName = "DemoApp"
-            ReferencedContainer = "container:MTViewController.xcodeproj">
+            ReferencedContainer = "container:PARViewController.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -44,6 +44,7 @@
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Debug"
+      ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
       <BuildableProductRunnable>
@@ -52,7 +53,7 @@
             BlueprintIdentifier = "8D1107260486CEB800E47090"
             BuildableName = "DemoApp.app"
             BlueprintName = "DemoApp"
-            ReferencedContainer = "container:MTViewController.xcodeproj">
+            ReferencedContainer = "container:PARViewController.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -70,7 +71,7 @@
             BlueprintIdentifier = "8D1107260486CEB800E47090"
             BuildableName = "DemoApp.app"
             BlueprintName = "DemoApp"
-            ReferencedContainer = "container:MTViewController.xcodeproj">
+            ReferencedContainer = "container:PARViewController.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -1,5 +1,5 @@
-//  MTObjectObserver.m
-//  MTViewController
+//  PARObjectObserver.m
+//  PARViewController
 //  Copyright 2010, 2011, 2012 Mekentosj BV. All rights reserved.
 
 #import "PARObjectObserver.h"

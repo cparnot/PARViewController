@@ -1,5 +1,5 @@
 //  AppDelegate.m
-//  MTViewController
+//  PARViewController
 //  Copyright 2010 Mekentosj BV. All rights reserved.
 
 #import "AppDelegate.h"

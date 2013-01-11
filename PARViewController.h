@@ -1,5 +1,5 @@
-//  MTViewController.h
-//  MTViewController
+//  PARViewController.h
+//  PARViewController
 //  Copyright 2010, 2011 Mekentosj BV. All rights reserved.
 
 #import <Cocoa/Cocoa.h>
@@ -42,7 +42,7 @@
 
 @end
 
-// if a subclass implements this optional method, MTViewController will automatically add an observer to the view frame, and the method will be called when the frame is changed
-@interface PARViewController (MTViewControllerFrameObserver)
+// if a subclass implements this optional method, PARViewController will automatically add an observer to the view frame, and the method will be called when the frame is changed
+@interface PARViewController (PARViewControllerFrameObserver)
 - (void)viewFrameDidChange;
 @end

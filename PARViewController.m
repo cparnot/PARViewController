@@ -1,12 +1,12 @@
-//  MTViewController.m
-//  MTViewController
+//  PARViewController.m
+//  PARViewController
 //  Copyright 2010, 2011 Mekentosj BV. All rights reserved.
 
 #import "PARViewController.h"
 #import "PARObjectObserver.h"
 
 // NSViewController base subclass that ensures automatic insertion into the responder chain
-// this is achieved simply by doing KVO on the nextResponder value for the controlled view, encapsulated in the MTViewObserver helper class
+// this is achieved simply by doing KVO on the nextResponder value for the controlled view, encapsulated in the PARViewObserver helper class
 
 @interface PARViewController()
 @property (readwrite, retain) PARObjectObserver *nextResponderObserver;

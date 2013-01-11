@@ -1,4 +1,4 @@
-//  MTViewController
+//  PARViewController
 //  Copyright 2010 Mekentosj BV. All rights reserved.
 
 #import "DemoController.h"

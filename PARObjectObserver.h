@@ -1,5 +1,5 @@
-//  MTObjectObserver.h
-//  MTViewController
+//  PARObjectObserver.h
+//  PARViewController
 //  Copyright 2010, 2011, 2012 Mekentosj BV. All rights reserved.
 
 
@@ -27,7 +27,7 @@
 @end
 
 // callback methods can use any of the following signatures (0, 1 or 2 arguments), but can otherwise use any name
-@interface NSObject (MTObjectObserverDelegate)
+@interface NSObject (PARObjectObserverDelegate)
 - (void)valueDidChange;
 - (void)valueDidChangeForKey:(NSString *)key;
 - (void)valueDidChangeForKey:(NSString *)key observedObject:(id)observedObject;

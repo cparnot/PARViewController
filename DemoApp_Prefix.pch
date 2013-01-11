@@ -1,7 +1,7 @@
-//  MTViewController
+//  PARViewController
 //  Copyright 2010 Mekentosj BV. All rights reserved.
 
-// Prefix header for all source files of the 'DemoApp' target in the 'MTViewController' project
+// Prefix header for all source files of the 'DemoApp' target in the 'PARViewController' project
 
 
 #ifdef __OBJC__
