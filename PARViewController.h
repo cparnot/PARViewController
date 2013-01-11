@@ -30,10 +30,10 @@
  */
 
 
-@class MTObjectObserver;
+@class PARObjectObserver;
 
-@interface MTViewController : NSViewController {
-	MTObjectObserver *nextResponderObserver;
+@interface PARViewController : NSViewController {
+	PARObjectObserver *nextResponderObserver;
 }
 
 // default implementation commits editing of current field editor if the window is key and if a field editor is up
@@ -43,6 +43,6 @@
 @end
 
 // if a subclass implements this optional method, MTViewController will automatically add an observer to the view frame, and the method will be called when the frame is changed
-@interface MTViewController (MTViewControllerFrameObserver)
+@interface PARViewController (MTViewControllerFrameObserver)
 - (void)viewFrameDidChange;
 @end

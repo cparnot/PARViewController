@@ -2,7 +2,7 @@
 //  MTViewController
 //  Copyright 2010, 2011, 2012 Mekentosj BV. All rights reserved.
 
-#import "MTObjectObserver.h"
+#import "PARObjectObserver.h"
 
 // thread-assertion macros can be defined outside of this file
 #ifndef MainThreadOrReturn
@@ -14,14 +14,14 @@
 #endif
 
 
-@interface MTObjectObserver ()
+@interface PARObjectObserver ()
 @property (assign) id delegate;
 @property (assign) id observedObject;
 @property (retain) NSArray *observedKeys;
 @end
 
 
-@implementation MTObjectObserver
+@implementation PARObjectObserver
 
 @synthesize delegate;
 @synthesize observedObject;
@@ -46,9 +46,9 @@
 	return self;
 }
 
-+ (MTObjectObserver *)observerWithDelegate:(id)notifiedObject selector:(SEL)callback observedKeys:(NSArray *)keys observedObject:(id)object
++ (PARObjectObserver *)observerWithDelegate:(id)notifiedObject selector:(SEL)callback observedKeys:(NSArray *)keys observedObject:(id)object
 {
-	MTObjectObserver *newObserver = [[MTObjectObserver alloc] initWithDelegate:notifiedObject selector:callback observedKeys:keys observedObject:object];
+	PARObjectObserver *newObserver = [[PARObjectObserver alloc] initWithDelegate:notifiedObject selector:callback observedKeys:keys observedObject:object];
     
     // `autorelease` is not valid in ARC
 #if ! __has_feature(objc_arc)

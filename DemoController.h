@@ -1,9 +1,9 @@
 //  MTViewController
 //  Copyright 2010 Mekentosj BV. All rights reserved.
 
-#import "MTViewController.h"
+#import "PARViewController.h"
 
-@interface DemoController : MTViewController {
+@interface DemoController : PARViewController {
 	IBOutlet NSTextField *line0;
 	IBOutlet NSTextField *line1;
 	IBOutlet NSTextField *line2;

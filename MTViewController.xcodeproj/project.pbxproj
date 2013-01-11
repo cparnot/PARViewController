@@ -14,12 +14,12 @@
 		56053F7E1459D2DE00862F6F /* LICENSE-BSD.txt in Resources */ = {isa = PBXBuildFile; fileRef = 56FA7F5F120FC5D200BC4B4E /* LICENSE-BSD.txt */; };
 		56053F801459D2DE00862F6F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		56053F811459D2DE00862F6F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 256AC3D90F4B6AC300CF3369 /* AppDelegate.m */; };
-		56053F821459D2DE00862F6F /* MTObjectObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FA7E2C120F561D00BC4B4E /* MTObjectObserver.m */; };
-		56053F831459D2DE00862F6F /* MTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FA7E2E120F561D00BC4B4E /* MTViewController.m */; };
+		56053F821459D2DE00862F6F /* PARObjectObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FA7E2C120F561D00BC4B4E /* PARObjectObserver.m */; };
+		56053F831459D2DE00862F6F /* PARViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FA7E2E120F561D00BC4B4E /* PARViewController.m */; };
 		56053F841459D2DE00862F6F /* DemoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FA7E74120F646F00BC4B4E /* DemoController.m */; };
 		56053F861459D2DE00862F6F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
-		56FA7E2F120F561D00BC4B4E /* MTObjectObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FA7E2C120F561D00BC4B4E /* MTObjectObserver.m */; };
-		56FA7E30120F561D00BC4B4E /* MTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FA7E2E120F561D00BC4B4E /* MTViewController.m */; };
+		56FA7E2F120F561D00BC4B4E /* PARObjectObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FA7E2C120F561D00BC4B4E /* PARObjectObserver.m */; };
+		56FA7E30120F561D00BC4B4E /* PARViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FA7E2E120F561D00BC4B4E /* PARViewController.m */; };
 		56FA7E75120F646F00BC4B4E /* DemoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FA7E74120F646F00BC4B4E /* DemoController.m */; };
 		56FA7F60120FC5D200BC4B4E /* LICENSE-BSD.txt in Resources */ = {isa = PBXBuildFile; fileRef = 56FA7F5F120FC5D200BC4B4E /* LICENSE-BSD.txt */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
@@ -40,10 +40,10 @@
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		56053F8A1459D2DE00862F6F /* DemoAppARC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoAppARC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56053F8C1459D2DE00862F6F /* DemoAppARC-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "DemoAppARC-Info.plist"; path = "/Users/charles/Docs/Dev/MTViewController/DemoAppARC-Info.plist"; sourceTree = "<absolute>"; };
-		56FA7E2B120F561D00BC4B4E /* MTObjectObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTObjectObserver.h; sourceTree = "<group>"; };
-		56FA7E2C120F561D00BC4B4E /* MTObjectObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTObjectObserver.m; sourceTree = "<group>"; };
-		56FA7E2D120F561D00BC4B4E /* MTViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTViewController.h; sourceTree = "<group>"; };
-		56FA7E2E120F561D00BC4B4E /* MTViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTViewController.m; sourceTree = "<group>"; };
+		56FA7E2B120F561D00BC4B4E /* PARObjectObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PARObjectObserver.h; sourceTree = "<group>"; };
+		56FA7E2C120F561D00BC4B4E /* PARObjectObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PARObjectObserver.m; sourceTree = "<group>"; };
+		56FA7E2D120F561D00BC4B4E /* PARViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PARViewController.h; sourceTree = "<group>"; };
+		56FA7E2E120F561D00BC4B4E /* PARViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PARViewController.m; sourceTree = "<group>"; };
 		56FA7E73120F646F00BC4B4E /* DemoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoController.h; sourceTree = "<group>"; };
 		56FA7E74120F646F00BC4B4E /* DemoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoController.m; sourceTree = "<group>"; };
 		56FA7F59120FC4CE00BC4B4E /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.markdown; sourceTree = "<group>"; };
@@ -75,10 +75,10 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				56FA7E2D120F561D00BC4B4E /* MTViewController.h */,
-				56FA7E2E120F561D00BC4B4E /* MTViewController.m */,
-				56FA7E2B120F561D00BC4B4E /* MTObjectObserver.h */,
-				56FA7E2C120F561D00BC4B4E /* MTObjectObserver.m */,
+				56FA7E2D120F561D00BC4B4E /* PARViewController.h */,
+				56FA7E2E120F561D00BC4B4E /* PARViewController.m */,
+				56FA7E2B120F561D00BC4B4E /* PARObjectObserver.h */,
+				56FA7E2C120F561D00BC4B4E /* PARObjectObserver.m */,
 				256AC3D80F4B6AC300CF3369 /* AppDelegate.h */,
 				256AC3D90F4B6AC300CF3369 /* AppDelegate.m */,
 				56FA7E73120F646F00BC4B4E /* DemoController.h */,
@@ -254,8 +254,8 @@
 			files = (
 				56053F801459D2DE00862F6F /* main.m in Sources */,
 				56053F811459D2DE00862F6F /* AppDelegate.m in Sources */,
-				56053F821459D2DE00862F6F /* MTObjectObserver.m in Sources */,
-				56053F831459D2DE00862F6F /* MTViewController.m in Sources */,
+				56053F821459D2DE00862F6F /* PARObjectObserver.m in Sources */,
+				56053F831459D2DE00862F6F /* PARViewController.m in Sources */,
 				56053F841459D2DE00862F6F /* DemoController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -266,8 +266,8 @@
 			files = (
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				256AC3DA0F4B6AC300CF3369 /* AppDelegate.m in Sources */,
-				56FA7E2F120F561D00BC4B4E /* MTObjectObserver.m in Sources */,
-				56FA7E30120F561D00BC4B4E /* MTViewController.m in Sources */,
+				56FA7E2F120F561D00BC4B4E /* PARObjectObserver.m in Sources */,
+				56FA7E30120F561D00BC4B4E /* PARViewController.m in Sources */,
 				56FA7E75120F646F00BC4B4E /* DemoController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

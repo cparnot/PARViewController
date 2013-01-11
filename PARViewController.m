@@ -2,17 +2,17 @@
 //  MTViewController
 //  Copyright 2010, 2011 Mekentosj BV. All rights reserved.
 
-#import "MTViewController.h"
-#import "MTObjectObserver.h"
+#import "PARViewController.h"
+#import "PARObjectObserver.h"
 
 // NSViewController base subclass that ensures automatic insertion into the responder chain
 // this is achieved simply by doing KVO on the nextResponder value for the controlled view, encapsulated in the MTViewObserver helper class
 
-@interface MTViewController()
-@property (readwrite, retain) MTObjectObserver *nextResponderObserver;
+@interface PARViewController()
+@property (readwrite, retain) PARObjectObserver *nextResponderObserver;
 @end
 
-@implementation MTViewController
+@implementation PARViewController
 
 @synthesize nextResponderObserver;
 
@@ -43,7 +43,7 @@
 	[self patchResponderChain];
 	[self.nextResponderObserver invalidate];
 	if (newView != nil)
-		self.nextResponderObserver = [MTObjectObserver observerWithDelegate:self selector:@selector(nextResponderDidChange) observedKeys:[NSArray arrayWithObject:@"nextResponder"] observedObject:[self view]];
+		self.nextResponderObserver = [PARObjectObserver observerWithDelegate:self selector:@selector(nextResponderDidChange) observedKeys:[NSArray arrayWithObject:@"nextResponder"] observedObject:[self view]];
 
 	// optionally observe the view frame
 	if ([self respondsToSelector:@selector(viewFrameDidChange)])

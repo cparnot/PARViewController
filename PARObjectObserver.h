@@ -3,7 +3,7 @@
 //  Copyright 2010, 2011, 2012 Mekentosj BV. All rights reserved.
 
 
-@interface MTObjectObserver : NSObject
+@interface PARObjectObserver : NSObject
 {
 	__unsafe_unretained id observedObject;
 	__unsafe_unretained id delegate;
@@ -15,7 +15,7 @@
 @property (readonly, assign) id observedObject;
 @property (readonly, retain) NSArray *observedKeys;
 
-+ (MTObjectObserver *)observerWithDelegate:(id)delegate selector:(SEL)callbackSelector observedKeys:(NSArray *)observedKeys observedObject:(id)observedObject;
++ (PARObjectObserver *)observerWithDelegate:(id)delegate selector:(SEL)callbackSelector observedKeys:(NSArray *)observedKeys observedObject:(id)observedObject;
 
 // in GC environments, call this method when the observer is no longer needed (but not in the `finalize` method)
 // in non-GC, you can still call it, but it's also automatically done in dealloc
