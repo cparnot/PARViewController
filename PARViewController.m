@@ -48,7 +48,7 @@
 	// optionally observe the view frame
 	if ([self respondsToSelector:@selector(viewFrameDidChange)])
 	{
-		[[NSNotificationCenter defaultCenter] removeObserver:self];
+		[[NSNotificationCenter defaultCenter] removeObserver:self name:NSViewFrameDidChangeNotification object:nil];
 		if ([self view])
 			[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(viewFrameDidChange:) name:NSViewFrameDidChangeNotification object:[self view]];
 	}
