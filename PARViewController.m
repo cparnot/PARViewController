@@ -43,7 +43,7 @@
 	[self patchResponderChain];
 	[self.nextResponderObserver invalidate];
 	if (newView != nil)
-		self.nextResponderObserver = [PARObjectObserver observerWithDelegate:self selector:@selector(nextResponderDidChange) observedKeys:[NSArray arrayWithObject:@"nextResponder"] observedObject:[self view]];
+		self.nextResponderObserver = [PARObjectObserver observerWithDelegate:self selector:@selector(nextResponderDidChange) observedKeys:@[@"nextResponder"] observedObject:[self view]];
 
 	// optionally observe the view frame
 	if ([self respondsToSelector:@selector(viewFrameDidChange)])
