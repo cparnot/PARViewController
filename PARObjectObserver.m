@@ -128,25 +128,16 @@
 	callbackSelector = NULL;
 }
 
-// compiling with ARC
-#if __has_feature(objc_arc)
 - (void)dealloc
 {
 	[self invalidate];
     observedObject = nil;
     delegate = nil;
-}
-
-// compiling without ARC
-#else
-- (void)dealloc
-{
-	[self invalidate];
-    observedObject = nil;
-    delegate = nil;
+    
+    // Manual memory management:
+#if !__has_feature(objc_arc)
     [super dealloc];
-}
 #endif
-
+}
 
 @end

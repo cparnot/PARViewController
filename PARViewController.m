@@ -10,6 +10,7 @@
 
 @interface PARViewController()
 @property (readwrite, retain) PARObjectObserver *nextResponderObserver;
+@property (assign, nonatomic) BOOL viewWindowObservationRemoved;
 @end
 
 @implementation PARViewController
@@ -18,6 +19,9 @@
 
 - (void)dealloc
 {
+    // Remove self.view.window KVO
+    [self removeViewWindowObservation];
+    
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
     self.nextResponderObserver = nil;
     #if ! __has_feature(objc_arc)
@@ -37,13 +41,38 @@
 	}
 }
 
+- (void)removeViewWindowObservation
+{
+    if (!self.viewWindowObservationRemoved)
+    {
+        [self removeObserver:self forKeyPath:@"view.window"];
+        self.viewWindowObservationRemoved = YES;
+    }
+}
+
 - (void)setView:(NSView *)newView
 {
-	[super setView:newView];
+    if (self.view == newView)
+    {
+        return;
+    }
+    
+    // Remove self.view.window KVO
+    [self removeViewWindowObservation];
+    
+    [super setView:newView];
 	[self patchResponderChain];
 	[self.nextResponderObserver invalidate];
 	if (newView != nil)
-		self.nextResponderObserver = [PARObjectObserver observerWithDelegate:self selector:@selector(nextResponderDidChange) observedKeys:[NSArray arrayWithObject:@"nextResponder"] observedObject:[self view]];
+    {
+		self.nextResponderObserver = [PARObjectObserver observerWithDelegate:self selector:@selector(nextResponderDidChange) observedKeys:@[@"nextResponder"] observedObject:[self view]];
+    }
+    
+    // Add self.view.window KVO
+    [self addObserver:self
+           forKeyPath:@"view.window"
+              options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld
+              context:nil];
 
 	// optionally observe the view frame
 	if ([self respondsToSelector:@selector(viewFrameDidChange)])
