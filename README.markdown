@@ -10,6 +10,9 @@ The PARViewController class is a subclass of  NSViewController that ensures auto
 	without PARViewController:   responder X  -->  view  -->  Responder Y
 	   with PARViewController:   responder X  -->  view  -->  view controller -->  Responder Y
 
+Note that this is only useful when targeting a version older than OS X 10.10 Yosemite. When targeting OS X 10.10 or older, NSViewController instances are automatically inserted into the responder chain.
+
+
 
 License
 -------
